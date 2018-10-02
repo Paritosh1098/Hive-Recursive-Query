@@ -212,6 +212,8 @@ public class SpatialJoin {
 		
 		MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class,GridMapperForPoints.class);
 		MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class,GridMapperForRectangles.class);
+		job.setMapperClass(GridMapperForPoints.class);
+		job.setMapperClass(GridMapperForRectangles.class);
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
 		
 	}
