@@ -183,7 +183,7 @@ public class SpatialJoin {
             		if(point.x >= bottomX && point.x <=rightX) {
             			
             			if(point.y >=bottomY && point.y <= topY) {
-            				System.out.pritln("Writing to context");
+            				System.out.println("Writing to context");
             				Text output = new Text(rectangle + " " + point.toString());
             				context.write(key, output);
             			}
