@@ -27,7 +27,49 @@ public class SpatialJoin {
 		return grid;
 	}
 	
+	public static class Rectangle {
+		int bottomX;
+		int bottomY;
+		int height;
+		int width;
+		
+		Rectangle() {
+			bottomX = getRandomValueInRange(1, 10000);
+			bottomY = getRandomValueInRange(1, 10000);
+			height  = getRandomValueInRange(1, 20);
+			width	= getRandomValueInRange(1, 5);
+		}
+		
+		static int getRandomValueInRange(int min, int max) {
+			return (int) (min + (Math.random() * (max - min)));
+		}
+	}
+	
 
+	public static class Point {
+		int x;
+		int y;
+		public Point() {
+			x = getRandomValueInRange(1,10000);
+			y = getRandomValueInRange(1,10000);
+		}
+		
+		public Point(int x, int y) {
+			x = this.x ;
+			y = this.y ;
+		}
+		
+		static int getRandomValueInRange(int min, int max) {
+			return (int) (min + (Math.random() * (max - min)));
+		}
+		
+		@Override
+		public String toString() {
+			
+			return "P<" + String.valueOf(x) + "," + String.valueOf(y) + ">";
+		}
+	}
+	
 	/**
 	 * Mapper which reports a point for a grid
 	 * The whole plane is divided in grids of size 1000 * 1000
