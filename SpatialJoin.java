@@ -165,8 +165,8 @@ public class SpatialJoin {
             	String[] rectangleCoordinates  = rectangle.split(",");
             	int bottomX = Integer.parseInt(rectangleCoordinates[1]);
             	int bottomY = Integer.parseInt(rectangleCoordinates[2]);
-            	int rightX = bottomX + Integer.parseInt(rectangleCoordinates[4]);
-            	int topY = bottomY + Integer.parseInt(rectangleCoordinates[5]);
+            	int rightX = bottomX + Integer.parseInt(rectangleCoordinates[3]);
+            	int topY = bottomY + Integer.parseInt(rectangleCoordinates[4]);
             	
             	for(Point point: setOfPointObjects) {
             		
