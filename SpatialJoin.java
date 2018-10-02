@@ -79,6 +79,9 @@ public class SpatialJoin {
 	public static class GridMapperForPoints extends Mapper<Object, Text, Text, Text> {
 		
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+			
+			System.out.println("VALUE IN POINT MAPPER ============>>>>>>>  " + value.toString());
+			
 			int x = Integer.parseInt(value.toString().split(",")[0]);
 			
 			int y = Integer.parseInt(value.toString().split(",")[1]);
@@ -101,6 +104,7 @@ public class SpatialJoin {
 	public static class GridMapperForRectangles extends Mapper<Object, Text, Text, Text> {
 		
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+			System.out.println("VALUE IN REC MAPPER ============>>>>>>>  " + value.toString());
 			String[] rec = value.toString().split(",");
 			
 			int bottomX = Integer.parseInt(rec[0]);
@@ -142,6 +146,8 @@ public class SpatialJoin {
             
             // Prepare Set of Points and Rectangles
             for(Text value: values) {
+            	System.out.println("###########VALUE IN Reducer =====>>>>>>   " + value.toString());
+            	
             	String[] coordinates = value.toString().split(",");
             	if(coordinates[0].equals("R")) {
             		setOfRectangles.add(value.toString());
