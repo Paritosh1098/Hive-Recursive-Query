@@ -147,7 +147,7 @@ public class SpatialJoin {
             		setOfRectangles.add(value.toString());
             	}
             	else
-            		setOfPoints.add(values.toString());
+            		setOfPoints.add(value.toString());
             }
             
             //make a set of point objects in this grid to reduce computaion in loop 
