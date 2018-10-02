@@ -165,9 +165,12 @@ public class SpatialJoin {
         		setOfPointObjects.add(new Point(pointX,pointY));
         	}
             
+            System.out.println("Set of Rectangles and Points");
+            
             
             //For each rectangle , check if any point is inside the figure and write it to the output
             for(String rectangle: setOfRectangles) {
+            	System.out.println(rectangle);
             	String[] rectangleCoordinates  = rectangle.split(",");
             	int bottomX = Integer.parseInt(rectangleCoordinates[1]);
             	int bottomY = Integer.parseInt(rectangleCoordinates[2]);
@@ -175,12 +178,12 @@ public class SpatialJoin {
             	int topY = bottomY + Integer.parseInt(rectangleCoordinates[4]);
             	
             	for(Point point: setOfPointObjects) {
-            		
+            		System.out.println(point);
             		//if point lies in rectangle, write to output
             		if(point.x >= bottomX && point.x <=rightX) {
             			
             			if(point.y >=bottomY && point.y <= topY) {
-            				
+            				System.out.pritln("Writing to context");
             				Text output = new Text(rectangle + " " + point.toString());
             				context.write(key, output);
             			}
