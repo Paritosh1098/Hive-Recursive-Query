@@ -1,5 +1,5 @@
-package com.paritosh.learning.hadoop;
-
+//package com.paritosh.learning.hadoop;
+package org.apache.hadoop.examples;
 import java.io.IOException;
 import java.util.HashSet;
 
@@ -202,7 +202,8 @@ public class SpatialJoin {
 		job.setOutputValueClass(Text.class);
 		
 		MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class,GridMapperForPoints.class);
-		MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class,GridMapperForRectangles.class);
+		MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class,GridMapperForRectangles.class);
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
 		
 	}
 }
