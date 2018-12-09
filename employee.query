@@ -1,0 +1,10 @@
+with emp_cte(id, name, department, position, manager, level)
+as (
+select id, name, department, position, manager, 1 as level
+from employee
+where manager is NULL
+union all
+select e.id, e.name, e.department, e.position, e.manager, m.level + 1 as level
+from employee e inner join emp_cte m on e.manager = m.id
+where e.manager is not null)
+select * from emp_cte
