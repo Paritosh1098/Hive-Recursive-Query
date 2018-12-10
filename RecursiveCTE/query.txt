@@ -1,0 +1,7 @@
+with cte(n)
+as
+( select 1 as n
+union all
+select n + 1 as n from cte
+where n < 10)
+select * from cte
