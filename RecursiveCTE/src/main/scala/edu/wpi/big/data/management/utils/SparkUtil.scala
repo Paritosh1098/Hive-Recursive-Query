@@ -33,7 +33,7 @@ object SparkUtil {
         initializeSparkContext()
     }
 
-    _sqlContext = new SQLContext(_sparkContext)
+    _sqlContext = new HiveContext(_sparkContext)
   }
 
   def conf: SparkConf = _conf
